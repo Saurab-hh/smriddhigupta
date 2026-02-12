@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
 import { Award, X } from 'lucide-react';
+import digitalStrategyImg from '@/assets/certs/digital_strategy_brand_marketing.jpg';
+import expertPythonImg from '@/assets/certs/expert_python_ml.jpg';
+import mlPythonImg from '@/assets/certs/getting_started_ml_python.jpg';
+import leadingOrgImg from '@/assets/certs/leading_organisation.jpg';
+import dsaImg from '@/assets/certs/fundamentals_dsa.jpeg';
 
 const certifications = [
-  { name: 'Python for Data Science', org: 'IBM (Coursera)', date: '2024', image: '' },
-  { name: 'Machine Learning Specialization', org: 'Stanford / Coursera', date: '2024', image: '' },
-  { name: 'SQL for Data Analysis', org: 'Udemy', date: '2023', image: '' },
-  { name: 'Web Development Bootcamp', org: 'Udemy', date: '2023', image: '' },
+  { name: 'Fundamentals of Data Structures using C++', org: 'Lovely Professional University', date: '2025', image: dsaImg },
+  { name: 'Expert Python Machine Learning', org: 'MindLuster', date: '2024', image: expertPythonImg },
+  { name: 'Getting Started with ML in Python', org: 'MindLuster', date: '2024', image: mlPythonImg },
+  { name: 'Digital Strategy Brand Marketing', org: 'MindLuster', date: '2023', image: digitalStrategyImg },
+  { name: 'Leading Organizations', org: 'MindLuster', date: '2023', image: leadingOrgImg },
 ];
 
 const CertificationsPage: React.FC = () => {
