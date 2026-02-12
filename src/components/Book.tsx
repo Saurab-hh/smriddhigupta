@@ -47,15 +47,20 @@ const Book: React.FC = () => {
   const [isOpening, setIsOpening] = useState(false);
   const bookRef = useRef<HTMLDivElement>(null);
 
-  const openBook = useCallback(() => {
+  const openBook = useCallback((targetSpread?: number) => {
     if (isOpening || isOpen) return;
     setIsOpening(true);
     flipSound();
     setTimeout(() => {
       setIsOpen(true);
       setIsOpening(false);
+      if (targetSpread !== undefined) setCurrentSpread(targetSpread);
     }, 800);
   }, [isOpen, isOpening]);
+
+  const openToContact = useCallback(() => {
+    openBook(3); // Spread index 3 = Achievements & Contact
+  }, [openBook]);
 
   const flipPage = useCallback((direction: 'next' | 'prev') => {
     if (isFlipping) return;
@@ -99,7 +104,7 @@ const Book: React.FC = () => {
           ref={bookRef}
           className={`relative w-full max-w-[420px] md:max-w-[480px] lg:max-w-[520px] book-shadow rounded-r-md cursor-pointer transition-transform duration-700 ${isOpening ? 'scale-95 opacity-80' : ''}`}
           style={{ perspective: '1500px' }}
-          onClick={openBook}
+          onClick={() => openBook()}
         >
           {/* Spine */}
           <div className="absolute left-0 top-0 bottom-0 w-3 md:w-4 spine-gradient rounded-l-sm z-20" />
@@ -107,7 +112,7 @@ const Book: React.FC = () => {
           <div className={`relative ml-3 md:ml-4 aspect-[3/4] rounded-r-md overflow-hidden transition-transform duration-700 ${isOpening ? 'origin-left' : ''}`}
             style={isOpening ? { transform: 'rotateY(-30deg)', transformOrigin: 'left center' } : {}}
           >
-            <CoverPage onOpen={openBook} />
+            <CoverPage onOpen={() => openBook()} onContactClick={openToContact} />
           </div>
           {/* Page edges */}
           <div className="absolute right-0 top-2 bottom-2 w-1.5 bg-gradient-to-l from-border/40 to-transparent rounded-r-sm" />

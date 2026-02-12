@@ -4,6 +4,7 @@ import { Mail, Download } from 'lucide-react';
 
 interface CoverPageProps {
   onOpen?: () => void;
+  onContactClick?: () => void;
 }
 
 const subtitleLines = [
@@ -11,7 +12,7 @@ const subtitleLines = [
   'Specialization: Data Science',
 ];
 
-const CoverPage: React.FC<CoverPageProps> = ({ onOpen }) => {
+const CoverPage: React.FC<CoverPageProps> = ({ onOpen, onContactClick }) => {
   const [displayedText, setDisplayedText] = useState('');
   const [lineIndex, setLineIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
@@ -59,17 +60,22 @@ const CoverPage: React.FC<CoverPageProps> = ({ onOpen }) => {
         </p>
         <div className="flex flex-col sm:flex-row gap-3 mt-8 justify-center">
           <button
-            onClick={(e) => { e.stopPropagation(); }}
-            className="flex items-center gap-2 px-5 py-2.5 bg-book-gold/90 text-foreground font-body font-semibold text-sm rounded hover:bg-book-gold transition-colors hover:scale-105 active:scale-95 transition-transform"
+            onClick={(e) => {
+              e.stopPropagation();
+              onContactClick?.();
+            }}
+            className="flex items-center gap-2 px-5 py-2.5 bg-book-gold/90 text-foreground font-body font-semibold text-sm rounded hover:bg-book-gold hover:shadow-lg hover:shadow-book-gold/30 transition-all hover:scale-105 active:scale-95"
           >
             <Mail className="w-4 h-4" />
             Contact Me
           </button>
           <a
             href="/Smriddhi_Gupta_CV.pdf"
-            download
+            download="Smriddhi_Gupta_CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={(e) => { e.stopPropagation(); }}
-            className="flex items-center gap-2 px-5 py-2.5 border border-primary-foreground/40 text-primary-foreground font-body font-semibold text-sm rounded hover:bg-primary-foreground/10 transition-colors hover:scale-105 active:scale-95 transition-transform"
+            className="flex items-center gap-2 px-5 py-2.5 border border-primary-foreground/40 text-primary-foreground font-body font-semibold text-sm rounded hover:bg-primary-foreground/10 hover:shadow-lg transition-all hover:scale-105 active:scale-95"
           >
             <Download className="w-4 h-4" />
             Download CV

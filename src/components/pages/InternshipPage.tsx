@@ -10,6 +10,14 @@ const internships = [
     description: 'Worked as a Backend Developer Intern, contributing to server-side development and API design.',
     highlights: ['Backend Development', 'API Design', 'Database Management', 'Server-Side Logic'],
   },
+  {
+    role: 'Machine Learning Intern',
+    company: 'Tech Analytics Solutions Pvt. Ltd.',
+    duration: 'May 2024 – July 2024',
+    location: 'Performance: Excellent',
+    description: 'Completed Machine Learning Internship working on data preprocessing, exploratory data analysis, predictive modeling, and model evaluation.',
+    highlights: ['Data Preprocessing', 'Exploratory Data Analysis', 'Predictive Modeling', 'Model Evaluation'],
+  },
 ];
 
 const InternshipPage: React.FC = () => {

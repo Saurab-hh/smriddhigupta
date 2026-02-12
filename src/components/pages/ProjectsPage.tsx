@@ -3,25 +3,25 @@ import { Github, ExternalLink } from 'lucide-react';
 
 const projects = [
   {
-    title: 'Data Analysis Dashboard',
-    description: 'Interactive dashboard for visualizing and analyzing datasets with filters and charts.',
-    tech: ['Python', 'Pandas', 'Streamlit'],
+    title: 'Intelligent CPU Scheduling Simulator',
+    description: 'A real-time CPU scheduling simulation system implementing major scheduling algorithms to visualize and analyze process execution with Gantt chart visualization.',
+    tech: ['C++', 'Operating Systems', 'Scheduling Algorithms', 'Data Visualization'],
     github: '#',
-    live: '#',
+    live: '',
   },
   {
-    title: 'ML Prediction Model',
-    description: 'Machine learning model for prediction with data preprocessing and evaluation.',
-    tech: ['Python', 'Scikit-learn', 'NumPy'],
-    github: '#',
-    live: '#',
+    title: 'AI Song Maker Bot',
+    description: 'An AI-powered chatbot that generates song lyrics and music suggestions based on user input using NLP techniques.',
+    tech: ['Python', 'AI', 'NLP', 'Automation'],
+    github: 'https://github.com/smriddhi1303/Ai_chatbot',
+    live: '',
   },
   {
-    title: 'Portfolio Website',
-    description: 'Interactive 3D book-style portfolio with page flip animations.',
-    tech: ['React', 'TypeScript', 'Tailwind'],
+    title: 'Zaloon – Salon Booking Website',
+    description: 'A salon appointment booking platform with service browsing, stylist viewing, admin dashboard, and secure authentication.',
+    tech: ['HTML', 'CSS', 'JavaScript'],
     github: '#',
-    live: '#',
+    live: '',
   },
 ];
 
@@ -45,12 +45,20 @@ const ProjectsPage: React.FC = () => {
               ))}
             </div>
             <div className="flex gap-3 mt-3">
-              <a href={project.github} className="flex items-center gap-1 font-body text-xs text-muted-foreground hover:text-foreground transition-colors">
-                <Github className="w-3.5 h-3.5" /> GitHub
-              </a>
-              <a href={project.live} className="flex items-center gap-1 font-body text-xs text-book-gold hover:text-accent transition-colors">
-                <ExternalLink className="w-3.5 h-3.5" /> Live Demo
-              </a>
+              {project.github && project.github !== '#' ? (
+                <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 font-body text-xs text-muted-foreground hover:text-foreground transition-colors">
+                  <Github className="w-3.5 h-3.5" /> View on GitHub
+                </a>
+              ) : (
+                <span className="flex items-center gap-1 font-body text-xs text-muted-foreground/50">
+                  <Github className="w-3.5 h-3.5" /> GitHub
+                </span>
+              )}
+              {project.live && (
+                <a href={project.live} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 font-body text-xs text-book-gold hover:text-accent transition-colors">
+                  <ExternalLink className="w-3.5 h-3.5" /> Live Demo
+                </a>
+              )}
             </div>
           </div>
         ))}
