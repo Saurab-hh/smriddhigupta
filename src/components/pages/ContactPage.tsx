@@ -13,9 +13,9 @@ const ContactPage: React.FC = () => {
   return (
     <div className="w-full h-full page-paper p-6 md:p-8 flex flex-col overflow-y-auto">
       <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-1">Contact</h2>
-      <div className="w-10 h-0.5 bg-book-gold mb-5" />
+      <div className="w-10 h-0.5 bg-book-gold mb-4" />
 
-      <form onSubmit={handleSubmit} className="space-y-3 flex-1">
+      <form onSubmit={handleSubmit} className="space-y-2.5 flex-1">
         <input
           type="text"
           placeholder="Your Name"
@@ -42,19 +42,19 @@ const ContactPage: React.FC = () => {
         />
         <button
           type="submit"
-          className="flex items-center gap-2 px-5 py-2 bg-primary text-primary-foreground font-body font-semibold text-sm rounded-md hover:bg-primary/90 transition-colors"
+          className="flex items-center gap-2 px-5 py-2 bg-primary text-primary-foreground font-body font-semibold text-sm rounded-md hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20 transition-all hover:scale-105 active:scale-95"
         >
           <Send className="w-4 h-4" /> Send Message
         </button>
       </form>
 
-      <div className="mt-5 pt-4 border-t border-border/50">
-        <div className="space-y-2">
+      <div className="mt-4 pt-3 border-t border-border/50">
+        <div className="space-y-1.5">
           <div className="flex items-center gap-2 font-body text-xs text-muted-foreground">
-            <Mail className="w-3.5 h-3.5 text-primary" /> your.email@example.com
+            <Mail className="w-3.5 h-3.5 text-primary" /> smriddhi.gupta@example.com
           </div>
           <div className="flex items-center gap-2 font-body text-xs text-muted-foreground">
-            <Phone className="w-3.5 h-3.5 text-primary" /> +1 234 567 890
+            <Phone className="w-3.5 h-3.5 text-primary" /> +91 XXXXX XXXXX
           </div>
         </div>
         <div className="flex gap-3 mt-3">
@@ -63,7 +63,7 @@ const ContactPage: React.FC = () => {
             { icon: Linkedin, href: '#' },
             { icon: Twitter, href: '#' },
           ].map(({ icon: Icon, href }, i) => (
-            <a key={i} href={href} className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors text-muted-foreground">
+            <a key={i} href={href} className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all hover:scale-110 text-muted-foreground">
               <Icon className="w-4 h-4" />
             </a>
           ))}

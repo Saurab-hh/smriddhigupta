@@ -2,10 +2,10 @@ import React from 'react';
 import { Award } from 'lucide-react';
 
 const certifications = [
-  { name: 'AWS Certified Cloud Practitioner', org: 'Amazon Web Services', date: 'Jan 2024' },
-  { name: 'Meta Front-End Developer', org: 'Meta (Coursera)', date: 'Mar 2023' },
-  { name: 'Python for Data Science', org: 'IBM', date: 'Aug 2023' },
-  { name: 'Full Stack Web Development', org: 'Udemy', date: 'Jun 2022' },
+  { name: 'Python for Data Science', org: 'IBM (Coursera)', date: '2024' },
+  { name: 'Machine Learning Specialization', org: 'Stanford / Coursera', date: '2024' },
+  { name: 'SQL for Data Analysis', org: 'Udemy', date: '2023' },
+  { name: 'Web Development Bootcamp', org: 'Udemy', date: '2023' },
 ];
 
 const CertificationsPage: React.FC = () => {
@@ -18,7 +18,7 @@ const CertificationsPage: React.FC = () => {
         {certifications.map((cert, i) => (
           <div
             key={i}
-            className="bg-card border border-border/50 rounded-lg p-4 flex items-start gap-3 hover:border-book-gold/40 transition-colors"
+            className="bg-card border border-border/50 rounded-lg p-4 flex items-start gap-3 hover:border-book-gold/40 hover:shadow-md hover:-translate-y-0.5 transition-all"
           >
             <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
               <Award className="w-4 h-4 text-primary" />
