@@ -3,19 +3,21 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import CoverPage from './pages/CoverPage';
 import AboutPage from './pages/AboutPage';
 import SkillsPage from './pages/SkillsPage';
-import EducationPage from './pages/EducationPage';
-import AchievementsPage from './pages/AchievementsPage';
-import CertificationsPage from './pages/CertificationsPage';
 import ProjectsPage from './pages/ProjectsPage';
+import InternshipPage from './pages/InternshipPage';
+import EducationPage from './pages/EducationPage';
+import CertificationsPage from './pages/CertificationsPage';
+import AchievementsPage from './pages/AchievementsPage';
 import ContactPage from './pages/ContactPage';
-import BackCoverPage from './pages/BackCoverPage';
+import ThankYouPage from './pages/ThankYouPage';
 
 // Spreads: pairs of [left, right] pages shown together
 const spreads = [
   { left: AboutPage, right: SkillsPage, label: 'About & Skills' },
-  { left: EducationPage, right: AchievementsPage, label: 'Education' },
-  { left: CertificationsPage, right: ProjectsPage, label: 'Certs & Projects' },
-  { left: ContactPage, right: BackCoverPage, label: 'Contact' },
+  { left: ProjectsPage, right: InternshipPage, label: 'Projects & Internship' },
+  { left: EducationPage, right: CertificationsPage, label: 'Education & Certs' },
+  { left: AchievementsPage, right: ContactPage, label: 'Achievements & Contact' },
+  { left: null, right: null, label: 'Thank You' }, // Final thank you page
 ];
 
 const flipSound = (() => {
@@ -80,8 +82,14 @@ const Book: React.FC = () => {
     }, 800);
   }, [isFlipping, isOpening]);
 
+  const isThankYouPage = currentSpread === spreads.length - 1;
   const LeftPage = spreads[currentSpread].left;
   const RightPage = spreads[currentSpread].right;
+
+  const backToStart = useCallback(() => {
+    setIsOpen(false);
+    setCurrentSpread(0);
+  }, []);
 
   // Cover (closed) view
   if (!isOpen) {
@@ -127,46 +135,50 @@ const Book: React.FC = () => {
         className="relative w-full max-w-[900px] lg:max-w-[1050px] book-shadow rounded-md animate-fade-in-up"
         style={{ perspective: '2000px' }}
       >
-        {/* Spine center */}
-        <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-3 md:w-4 spine-gradient z-20 shadow-lg" />
+        {/* Spine center - hide on thank you page */}
+        {!isThankYouPage && (
+          <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-3 md:w-4 spine-gradient z-20 shadow-lg" />
+        )}
 
-        <div className="flex flex-col md:flex-row">
-          {/* Left page */}
-          <div className="relative w-full md:w-1/2 aspect-[3/4] rounded-l-md overflow-hidden border-r border-border/20">
-            <LeftPage />
-            {/* Inner shadow */}
-            <div className="absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-book-shadow/10 to-transparent pointer-events-none" />
-            {/* Click zone prev */}
-            <button
-              onClick={() => flipPage('prev')}
-              className="absolute left-0 top-0 bottom-0 w-1/4 z-20 cursor-pointer opacity-0 hover:opacity-100 transition-opacity"
-              disabled={currentSpread === 0 || isFlipping}
-              aria-label="Previous spread"
-            >
-              <div className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-foreground/10 flex items-center justify-center backdrop-blur-sm">
-                <ChevronLeft className="w-4 h-4 text-foreground/60" />
-              </div>
-            </button>
+        {isThankYouPage ? (
+          <div className="aspect-[3/4] md:aspect-[8/5] rounded-md overflow-hidden">
+            <ThankYouPage onBackToStart={backToStart} />
           </div>
+        ) : (
+          <div className="flex flex-col md:flex-row">
+            {/* Left page */}
+            <div className="relative w-full md:w-1/2 aspect-[3/4] rounded-l-md overflow-hidden border-r border-border/20">
+              {LeftPage && <LeftPage />}
+              <div className="absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-book-shadow/10 to-transparent pointer-events-none" />
+              <button
+                onClick={() => flipPage('prev')}
+                className="absolute left-0 top-0 bottom-0 w-1/4 z-20 cursor-pointer opacity-0 hover:opacity-100 transition-opacity"
+                disabled={currentSpread === 0 || isFlipping}
+                aria-label="Previous spread"
+              >
+                <div className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-foreground/10 flex items-center justify-center backdrop-blur-sm">
+                  <ChevronLeft className="w-4 h-4 text-foreground/60" />
+                </div>
+              </button>
+            </div>
 
-          {/* Right page */}
-          <div className="relative w-full md:w-1/2 aspect-[3/4] rounded-r-md overflow-hidden">
-            <RightPage />
-            {/* Inner shadow */}
-            <div className="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-book-shadow/10 to-transparent pointer-events-none" />
-            {/* Click zone next */}
-            <button
-              onClick={() => flipPage('next')}
-              className="absolute right-0 top-0 bottom-0 w-1/4 z-20 cursor-pointer opacity-0 hover:opacity-100 transition-opacity"
-              disabled={currentSpread === spreads.length - 1 || isFlipping}
-              aria-label="Next spread"
-            >
-              <div className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-foreground/10 flex items-center justify-center backdrop-blur-sm">
-                <ChevronRight className="w-4 h-4 text-foreground/60" />
-              </div>
-            </button>
+            {/* Right page */}
+            <div className="relative w-full md:w-1/2 aspect-[3/4] rounded-r-md overflow-hidden">
+              {RightPage && <RightPage />}
+              <div className="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-book-shadow/10 to-transparent pointer-events-none" />
+              <button
+                onClick={() => flipPage('next')}
+                className="absolute right-0 top-0 bottom-0 w-1/4 z-20 cursor-pointer opacity-0 hover:opacity-100 transition-opacity"
+                disabled={currentSpread === spreads.length - 1 || isFlipping}
+                aria-label="Next spread"
+              >
+                <div className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-foreground/10 flex items-center justify-center backdrop-blur-sm">
+                  <ChevronRight className="w-4 h-4 text-foreground/60" />
+                </div>
+              </button>
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Flip overlay animation */}
         {isFlipping && (
