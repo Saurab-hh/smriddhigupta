@@ -2,22 +2,22 @@ import React from 'react';
 
 const education = [
   {
-    degree: 'B.Tech in Computer Science',
+    degree: 'B.Tech CSE (Data Science)',
     institution: 'Your University Name',
-    year: '2020 - 2024',
-    achievements: ['GPA: 8.5/10', 'Dean\'s List', 'Best Project Award'],
+    year: '2022 - 2026',
+    achievements: ['3rd Year', 'Data Science Specialization'],
   },
   {
     degree: 'Higher Secondary (12th)',
     institution: 'Your School Name',
-    year: '2018 - 2020',
-    achievements: ['Score: 92%', 'Science Stream'],
+    year: '2020 - 2022',
+    achievements: ['Science Stream', 'Strong Academics'],
   },
   {
     degree: 'Secondary (10th)',
     institution: 'Your School Name',
-    year: '2018',
-    achievements: ['Score: 95%', 'School Topper'],
+    year: '2020',
+    achievements: ['Excellent Results'],
   },
 ];
 
@@ -27,16 +27,15 @@ const EducationPage: React.FC = () => {
       <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-1">Education</h2>
       <div className="w-10 h-0.5 bg-book-gold mb-5" />
 
-      <div className="relative pl-6 space-y-6 flex-1">
-        {/* Timeline line */}
+      <div className="relative pl-6 space-y-5 flex-1">
         <div className="absolute left-[7px] top-2 bottom-2 w-0.5 bg-border" />
 
         {education.map((edu, i) => (
-          <div key={i} className="relative">
+          <div key={i} className="relative animate-fade-in-up" style={{ animationDelay: `${i * 0.15}s` }}>
             <div className="absolute -left-6 top-1 w-3.5 h-3.5 rounded-full bg-primary border-2 border-book-gold" />
-            <div className="bg-card rounded-lg p-4 border border-border/50">
+            <div className="bg-card rounded-lg p-3 border border-border/50 hover:border-book-gold/40 transition-colors">
               <span className="font-body text-xs text-book-gold font-semibold">{edu.year}</span>
-              <h3 className="font-display text-sm font-bold text-foreground mt-1">{edu.degree}</h3>
+              <h3 className="font-display text-sm font-bold text-foreground mt-0.5">{edu.degree}</h3>
               <p className="font-body text-xs text-muted-foreground">{edu.institution}</p>
               <div className="flex flex-wrap gap-1.5 mt-2">
                 {edu.achievements.map((a) => (
