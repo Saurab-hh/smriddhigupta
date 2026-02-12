@@ -1,0 +1,45 @@
+import React from 'react';
+import coverBg from '@/assets/cover-bg.jpg';
+import { Mail, Download } from 'lucide-react';
+
+const CoverPage: React.FC = () => {
+  return (
+    <div
+      className="relative w-full h-full flex flex-col items-center justify-center overflow-hidden rounded-r-md"
+      style={{
+        backgroundImage: `url(${coverBg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
+      <div className="absolute inset-0 bg-gradient-to-b from-book-spine/80 via-primary/70 to-book-spine/90" />
+      <div className="relative z-10 text-center px-6 md:px-10">
+        <div className="mb-4 text-book-gold font-body text-sm tracking-[0.3em] uppercase">
+          Portfolio
+        </div>
+        <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4 leading-tight">
+          Your Name
+        </h1>
+        <div className="w-16 h-0.5 bg-book-gold mx-auto mb-4" />
+        <p className="font-body text-primary-foreground/80 text-sm md:text-base tracking-wide max-w-xs mx-auto">
+          Software Developer | Problem Solver | Tech Enthusiast
+        </p>
+        <div className="flex flex-col sm:flex-row gap-3 mt-8 justify-center">
+          <button className="flex items-center gap-2 px-5 py-2.5 bg-book-gold/90 text-foreground font-body font-semibold text-sm rounded hover:bg-book-gold transition-colors">
+            <Mail className="w-4 h-4" />
+            Contact Me
+          </button>
+          <button className="flex items-center gap-2 px-5 py-2.5 border border-primary-foreground/40 text-primary-foreground font-body font-semibold text-sm rounded hover:bg-primary-foreground/10 transition-colors">
+            <Download className="w-4 h-4" />
+            Download CV
+          </button>
+        </div>
+      </div>
+      <div className="absolute bottom-6 text-primary-foreground/40 text-xs font-body tracking-widest">
+        FLIP TO EXPLORE →
+      </div>
+    </div>
+  );
+};
+
+export default CoverPage;
