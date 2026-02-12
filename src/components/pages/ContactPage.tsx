@@ -42,9 +42,11 @@ const ContactPage: React.FC = () => {
         />
         <button
           type="submit"
-          className="flex items-center gap-2 px-5 py-2 bg-primary text-primary-foreground font-body font-semibold text-sm rounded-md hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20 transition-all hover:scale-105 active:scale-95"
+          className="flex items-center gap-2 px-5 py-2 bg-primary text-primary-foreground font-body font-semibold text-sm rounded-md hover:bg-primary/90 transition-all hover:scale-105 active:scale-95 hover:shadow-lg hover:shadow-primary/30 relative overflow-hidden group"
         >
-          <Send className="w-4 h-4" /> Send Message
+          <span className="absolute inset-0 bg-book-gold/20 opacity-0 group-hover:opacity-100 transition-opacity rounded-md" />
+          <Send className="w-4 h-4 relative z-10" />
+          <span className="relative z-10">Send Message</span>
         </button>
       </form>
 
@@ -63,7 +65,7 @@ const ContactPage: React.FC = () => {
             { icon: Linkedin, href: '#' },
             { icon: Twitter, href: '#' },
           ].map(({ icon: Icon, href }, i) => (
-            <a key={i} href={href} className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all hover:scale-110 text-muted-foreground">
+            <a key={i} href={href} className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all hover:scale-110 hover:rotate-6 text-muted-foreground">
               <Icon className="w-4 h-4" />
             </a>
           ))}
