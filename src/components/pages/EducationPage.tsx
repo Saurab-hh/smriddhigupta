@@ -2,22 +2,22 @@ import React from 'react';
 
 const education = [
   {
-    degree: 'B.Tech CSE (Data Science)',
-    institution: 'Your University Name',
-    year: '2022 - 2026',
-    achievements: ['3rd Year', 'Data Science Specialization'],
+    degree: 'B.Tech – Computer Science & Engineering',
+    institution: 'Lovely Professional University, Punjab',
+    year: '2023 – Present',
+    achievements: ['Specialization: Data Science', 'CGPA: 6.79'],
   },
   {
-    degree: 'Higher Secondary (12th)',
-    institution: 'Your School Name',
-    year: '2020 - 2022',
-    achievements: ['Science Stream', 'Strong Academics'],
+    degree: 'Senior Higher Secondary (Class XII)',
+    institution: 'Aditya Educational Institution, Andhra Pradesh',
+    year: '2021 – 2023',
+    achievements: ['Physics, Maths, CS', 'Percentage: 69.7%'],
   },
   {
-    degree: 'Secondary (10th)',
-    institution: 'Your School Name',
-    year: '2020',
-    achievements: ['Excellent Results'],
+    degree: 'Higher Secondary (Class X)',
+    institution: 'Narayan School, Kolkata, West Bengal',
+    year: '2020 – 2021',
+    achievements: ['Percentage: 87.8%'],
   },
 ];
 

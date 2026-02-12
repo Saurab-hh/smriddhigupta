@@ -65,13 +65,15 @@ const CoverPage: React.FC<CoverPageProps> = ({ onOpen }) => {
             <Mail className="w-4 h-4" />
             Contact Me
           </button>
-          <button
+          <a
+            href="/Smriddhi_Gupta_CV.pdf"
+            download
             onClick={(e) => { e.stopPropagation(); }}
             className="flex items-center gap-2 px-5 py-2.5 border border-primary-foreground/40 text-primary-foreground font-body font-semibold text-sm rounded hover:bg-primary-foreground/10 transition-colors hover:scale-105 active:scale-95 transition-transform"
           >
             <Download className="w-4 h-4" />
             Download CV
-          </button>
+          </a>
         </div>
       </div>
       <button

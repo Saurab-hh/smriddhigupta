@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, Linkedin, Github, Twitter, Send } from 'lucide-react';
+import { Mail, Phone, Linkedin, Github, Send } from 'lucide-react';
 
 const ContactPage: React.FC = () => {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
@@ -53,19 +53,18 @@ const ContactPage: React.FC = () => {
       <div className="mt-4 pt-3 border-t border-border/50">
         <div className="space-y-1.5">
           <div className="flex items-center gap-2 font-body text-xs text-muted-foreground">
-            <Mail className="w-3.5 h-3.5 text-primary" /> smriddhi.gupta@example.com
+            <Mail className="w-3.5 h-3.5 text-primary" /> smriddhigupta@gmail.com
           </div>
           <div className="flex items-center gap-2 font-body text-xs text-muted-foreground">
-            <Phone className="w-3.5 h-3.5 text-primary" /> +91 XXXXX XXXXX
+            <Phone className="w-3.5 h-3.5 text-primary" /> +91 6290672306
           </div>
         </div>
         <div className="flex gap-3 mt-3">
           {[
-            { icon: Github, href: '#' },
-            { icon: Linkedin, href: '#' },
-            { icon: Twitter, href: '#' },
+            { icon: Github, href: 'https://github.com/smriddhi1303' },
+            { icon: Linkedin, href: 'https://www.linkedin.com/in/smriddhi-gupta/' },
           ].map(({ icon: Icon, href }, i) => (
-            <a key={i} href={href} className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all hover:scale-110 hover:rotate-6 text-muted-foreground">
+            <a key={i} href={href} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all hover:scale-110 hover:rotate-6 text-muted-foreground">
               <Icon className="w-4 h-4" />
             </a>
           ))}

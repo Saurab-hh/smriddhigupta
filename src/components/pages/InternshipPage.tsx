@@ -3,20 +3,12 @@ import { Briefcase, Calendar, MapPin } from 'lucide-react';
 
 const internships = [
   {
-    role: 'Data Science Intern',
-    company: 'Company Name',
-    duration: 'Jun 2025 – Aug 2025',
-    location: 'Remote',
-    description: 'Worked on data analysis and ML model development for business insights.',
-    highlights: ['Data Cleaning', 'EDA', 'Model Training', 'Dashboard Creation'],
-  },
-  {
-    role: 'Web Development Intern',
-    company: 'Company Name',
-    duration: 'Jan 2025 – Mar 2025',
-    location: 'Remote',
-    description: 'Built responsive web applications using modern frontend technologies.',
-    highlights: ['React', 'REST APIs', 'UI/UX', 'Git'],
+    role: 'Backend Developer Intern',
+    company: 'Poonawalla Fincorp',
+    duration: '3 Months',
+    location: 'Stipend: ₹10,000',
+    description: 'Worked as a Backend Developer Intern, contributing to server-side development and API design.',
+    highlights: ['Backend Development', 'API Design', 'Database Management', 'Server-Side Logic'],
   },
 ];
 
